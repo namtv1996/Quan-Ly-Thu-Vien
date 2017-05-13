@@ -58,10 +58,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lbl_search = new System.Windows.Forms.Label();
             this.lbl_diachi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsachsach)).BeginInit();
             this.grb_thongtin.SuspendLayout();
@@ -358,8 +358,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbl_search);
             this.groupBox2.Controls.Add(this.txtSearch);
-            this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Location = new System.Drawing.Point(383, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(223, 49);
@@ -374,19 +374,9 @@
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(6, 18);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(181, 21);
+            this.txtSearch.Size = new System.Drawing.Size(211, 21);
             this.txtSearch.TabIndex = 27;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Image = global::QuanLyThuVien.Properties.Resources.timkiem;
-            this.btnSearch.Location = new System.Drawing.Point(184, 18);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(24, 21);
-            this.btnSearch.TabIndex = 28;
-            this.btnSearch.UseVisualStyleBackColor = false;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnSave
             // 
@@ -433,6 +423,18 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // lbl_search
+            // 
+            this.lbl_search.AutoSize = true;
+            this.lbl_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_search.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_search.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_search.Location = new System.Drawing.Point(109, 20);
+            this.lbl_search.Name = "lbl_search";
+            this.lbl_search.Size = new System.Drawing.Size(104, 16);
+            this.lbl_search.TabIndex = 30;
+            this.lbl_search.Text = "Nhập tên sách";
+            // 
             // UserControl_Sach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,7 +478,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelete;
@@ -490,5 +491,6 @@
         private System.Windows.Forms.ComboBox cbb_nhaxuatban;
         private System.Windows.Forms.Label lbl_theloai;
         private System.Windows.Forms.ComboBox cbb_theloai;
+        private System.Windows.Forms.Label lbl_search;
     }
 }

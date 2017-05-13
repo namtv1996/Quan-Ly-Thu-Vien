@@ -14,7 +14,7 @@ namespace QuanLyThuVien
     
     public partial class CT_PhieuMuon
     {
-        public string MaPhieu { get; set; }
+        public int MaPhieu { get; set; }
         public string MaSach { get; set; }
         public Nullable<System.DateTime> HanTra { get; set; }
     

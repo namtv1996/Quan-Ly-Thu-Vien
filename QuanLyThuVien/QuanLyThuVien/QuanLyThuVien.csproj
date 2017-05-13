@@ -58,61 +58,79 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CT_PhieuMuon.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DocGia.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="NhanVien.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="NhaXuatBan.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PhieuMuon.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyThuVien_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVien_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyThuVien_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyThuVien_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVien_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Sach.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="show_sach_Result.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_showthongtindocgia_Result.cs">
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_showthongtinmuon_Result.cs">
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_showthongtinsach_Result.cs">
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_timkiemdocgia_Result.cs">
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_timkiemnguoimuon_Result.cs">
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_timkiemsach_Result.cs">
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TacGia.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TheLoai.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ThuVien.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ThuVien.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ThuVien.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ThuVien.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ThuVien.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ThuVien.edmx</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="timkiem_Result.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TraSach.cs">
-      <DependentUpon>ThuVien.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Docgia.cs">
       <SubType>UserControl</SubType>
@@ -172,18 +190,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="ThuVien.edmx">
+    <EntityDeploy Include="QuanLyThuVien_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ThuVien.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyThuVien_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ThuVien.edmx.diagram">
-      <DependentUpon>ThuVien.edmx</DependentUpon>
+    <None Include="QuanLyThuVien_Model.edmx.diagram">
+      <DependentUpon>QuanLyThuVien_Model.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="QuanLyThuVien_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVien_Model.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVien_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QuanLyThuVien_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVien_Model.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVien_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\1473536478_Add.png" />
     <Content Include="Resources\1473536499_Save.png" />
     <Content Include="Resources\1473536520_Edit.png" />
@@ -191,16 +219,6 @@
     <Content Include="Resources\timkiem.png" />
     <Content Include="Resources\trash-delete-16x16.gif" />
     <Content Include="Resources\ẽit.png" />
-    <Content Include="ThuVien.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ThuVien.edmx</DependentUpon>
-      <LastGenOutput>ThuVien.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ThuVien.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ThuVien.edmx</DependentUpon>
-      <LastGenOutput>ThuVien.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

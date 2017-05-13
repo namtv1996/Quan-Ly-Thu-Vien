@@ -21,7 +21,7 @@ namespace QuanLyThuVien
             this.TraSaches = new HashSet<TraSach>();
         }
     
-        public string MaPhieu { get; set; }
+        public int MaPhieu { get; set; }
         public Nullable<System.DateTime> Ngaymuon { get; set; }
         public string MaDG { get; set; }
         public string MaNV { get; set; }

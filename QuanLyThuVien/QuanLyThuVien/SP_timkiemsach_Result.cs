@@ -10,18 +10,19 @@
 namespace QuanLyThuVien
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TraSach
+    public partial class SP_timkiemsach_Result
     {
-        public int MaPhieu { get; set; }
         public string MaSach { get; set; }
-        public string Phat { get; set; }
-        public Nullable<System.DateTime> NgayTra { get; set; }
-        public string MaNV { get; set; }
-    
-        public virtual NhanVien NhanVien { get; set; }
-        public virtual PhieuMuon PhieuMuon { get; set; }
-        public virtual Sach Sach { get; set; }
+        public string TenSach { get; set; }
+        public string NoiDungTT { get; set; }
+        public Nullable<int> SoTrang { get; set; }
+        public Nullable<long> GiaTien { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<System.DateTime> NgayNhap { get; set; }
+        public string TinhTrang { get; set; }
+        public string MaNXB { get; set; }
+        public string MaTG { get; set; }
+        public string MaTL { get; set; }
     }
 }

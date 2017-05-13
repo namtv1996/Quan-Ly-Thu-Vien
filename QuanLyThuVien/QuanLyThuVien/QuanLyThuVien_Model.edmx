@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QUANLYTHUVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QUANLYTHUVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CT_PhieuMuon">
           <Key>
             <PropertyRef Name="MaPhieu" />
             <PropertyRef Name="MaSach" />
           </Key>
-          <Property Name="MaPhieu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhieu" Type="int" Nullable="false" />
           <Property Name="MaSach" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="HanTra" Type="datetime" />
         </EntityType>
@@ -55,7 +55,7 @@
           <Key>
             <PropertyRef Name="MaPhieu" />
           </Key>
-          <Property Name="MaPhieu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhieu" Type="int" Nullable="false" />
           <Property Name="Ngaymuon" Type="datetime" />
           <Property Name="MaDG" Type="varchar" MaxLength="10" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" />
@@ -108,7 +108,7 @@
             <PropertyRef Name="MaPhieu" />
             <PropertyRef Name="MaSach" />
           </Key>
-          <Property Name="MaPhieu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhieu" Type="int" Nullable="false" />
           <Property Name="MaSach" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Phat" Type="nvarchar" MaxLength="100" />
           <Property Name="NgayTra" Type="datetime" />
@@ -236,6 +236,14 @@
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="show_sach" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_addphieumuon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Maphieu" Type="int" Mode="In" />
+          <Parameter Name="Masach" Type="varchar" Mode="In" />
+          <Parameter Name="Madocgia" Type="varchar" Mode="In" />
+          <Parameter Name="Manhanvien" Type="varchar" Mode="In" />
+          <Parameter Name="Ngaymuon" Type="datetime" Mode="In" />
+          <Parameter Name="Ngaytra" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -264,6 +272,18 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_showthongtindocgia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_showthongtinmuon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_showthongtinsach" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_timkiemdocgia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_timkiemnguoimuon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_timkiemsach" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="timkiem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -321,7 +341,8 @@
             <End Role="TraSach" EntitySet="TraSach" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYTHUVIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -330,7 +351,7 @@
             <PropertyRef Name="MaPhieu" />
             <PropertyRef Name="MaSach" />
           </Key>
-          <Property Name="MaPhieu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaPhieu" Type="Int32" Nullable="false" />
           <Property Name="MaSach" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HanTra" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PhieuMuon" Relationship="Self.FK_CT_PhieuMuon_PhieuMuon" FromRole="CT_PhieuMuon" ToRole="PhieuMuon" />
@@ -381,7 +402,7 @@
           <Key>
             <PropertyRef Name="MaPhieu" />
           </Key>
-          <Property Name="MaPhieu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaPhieu" Type="Int32" Nullable="false" />
           <Property Name="Ngaymuon" Type="DateTime" Precision="3" />
           <Property Name="MaDG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -445,7 +466,7 @@
             <PropertyRef Name="MaPhieu" />
             <PropertyRef Name="MaSach" />
           </Key>
-          <Property Name="MaPhieu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaPhieu" Type="Int32" Nullable="false" />
           <Property Name="MaSach" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NgayTra" Type="DateTime" Precision="3" />
@@ -574,7 +595,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QUANLYTHUVIENEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QUANLYTHUVIENEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CT_PhieuMuon" EntityType="Self.CT_PhieuMuon" />
           <EntitySet Name="DocGias" EntityType="Self.DocGia" />
           <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
@@ -626,6 +647,14 @@
             <End Role="TraSach" EntitySet="TraSaches" />
           </AssociationSet>
           <FunctionImport Name="show_sach" ReturnType="Collection(QUANLYTHUVIENModel.show_sach_Result)" />
+          <FunctionImport Name="SP_addphieumuon">
+            <Parameter Name="Maphieu" Mode="In" Type="Int32" />
+            <Parameter Name="Masach" Mode="In" Type="String" />
+            <Parameter Name="Madocgia" Mode="In" Type="String" />
+            <Parameter Name="Manhanvien" Mode="In" Type="String" />
+            <Parameter Name="Ngaymuon" Mode="In" Type="DateTime" />
+            <Parameter Name="Ngaytra" Mode="In" Type="DateTime" />
+          </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -654,6 +683,18 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_showthongtindocgia" ReturnType="Collection(QUANLYTHUVIENModel.SP_showthongtindocgia_Result)" />
+          <FunctionImport Name="SP_showthongtinmuon" ReturnType="Collection(QUANLYTHUVIENModel.SP_showthongtinmuon_Result)" />
+          <FunctionImport Name="SP_showthongtinsach" ReturnType="Collection(QUANLYTHUVIENModel.SP_showthongtinsach_Result)" />
+          <FunctionImport Name="SP_timkiemdocgia" ReturnType="Collection(QUANLYTHUVIENModel.SP_timkiemdocgia_Result)">
+            <Parameter Name="ten" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_timkiemnguoimuon" ReturnType="Collection(QUANLYTHUVIENModel.SP_timkiemnguoimuon_Result)">
+            <Parameter Name="ten" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_timkiemsach" ReturnType="Collection(QUANLYTHUVIENModel.SP_timkiemsach_Result)">
+            <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="timkiem" ReturnType="Collection(QUANLYTHUVIENModel.timkiem_Result)">
@@ -684,6 +725,78 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="SP_showthongtindocgia_Result">
+          <Property Type="String" Name="Mã_độc_giả" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Tên_độc_giả" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Địa_chỉ" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Giới_tính" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Sđt" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="Ngày_làm_thẻ" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Ngày_hết_hạn" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_showthongtinmuon_Result">
+          <Property Type="Int32" Name="Phiếu_mượn" Nullable="false" />
+          <Property Type="String" Name="Mã_độc_giả" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Họ_tên" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Mã_sách" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Tên_Sách" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Hạn_trả" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Ngày_mượn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Người_cho_mượn" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Mã_NV" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SP_showthongtinsach_Result">
+          <Property Type="String" Name="Mã_sách" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Tên_sách" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nội_dung_tóm_tắt" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="Số_trang" Nullable="true" />
+          <Property Type="Int64" Name="Giá_tiền" Nullable="true" />
+          <Property Type="Int32" Name="Số_lượng" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_nhập" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Tình_trạng" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nhà_xuất_bản" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Tác_giả" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Thể_loại" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_timkiemdocgia_Result">
+          <Property Type="String" Name="MaDG" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="HoTenDG" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="GioiTinhDG" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="NgaySinhDG" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DiaChiDG" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DienThoaiDG" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="EmailDG" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayLamThe" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="NgayHetHan" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_timkiemnguoimuon_Result">
+          <Property Type="Int32" Name="Phiếu_mượn" Nullable="false" />
+          <Property Type="String" Name="Mã_độc_giả" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Họ_tên" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Người_cho_mượn" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Mã_NV" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Tên_Sách" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Mã_sách" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="Hạn_trả" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Ngày_mượn" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_timkiemsach_Result">
+          <Property Type="String" Name="MaSach" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TenSach" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NoiDungTT" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="SoTrang" Nullable="true" />
+          <Property Type="Int64" Name="GiaTien" Nullable="true" />
+          <Property Type="Int32" Name="SoLuong" Nullable="true" />
+          <Property Type="DateTime" Name="NgayNhap" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MaNXB" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="MaTG" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="MaTL" Nullable="true" MaxLength="10" />
+        </ComplexType>
         <ComplexType Name="timkiem_Result">
           <Property Type="String" Name="MaDG" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="HoTenDG" Nullable="true" MaxLength="100" />
@@ -700,7 +813,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QUANLYTHUVIENModelStoreContainer" CdmEntityContainer="QUANLYTHUVIENEntities1">
+        <EntityContainerMapping StorageEntityContainer="QUANLYTHUVIENModelStoreContainer" CdmEntityContainer="QUANLYTHUVIENEntities">
           <EntitySetMapping Name="CT_PhieuMuon">
             <EntityTypeMapping TypeName="QUANLYTHUVIENModel.CT_PhieuMuon">
               <MappingFragment StoreEntitySet="CT_PhieuMuon">
@@ -835,6 +948,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_addphieumuon" FunctionName="QUANLYTHUVIENModel.Store.SP_addphieumuon" />
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QUANLYTHUVIENModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QUANLYTHUVIENModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QUANLYTHUVIENModel.Store.sp_dropdiagram" />
@@ -858,6 +972,102 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QUANLYTHUVIENModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SP_showthongtindocgia" FunctionName="QUANLYTHUVIENModel.Store.SP_showthongtindocgia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_showthongtindocgia_Result">
+                <ScalarProperty Name="Mã_độc_giả" ColumnName="Mã độc giả" />
+                <ScalarProperty Name="Tên_độc_giả" ColumnName="Tên độc giả" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Địa_chỉ" ColumnName="Địa chỉ" />
+                <ScalarProperty Name="Giới_tính" ColumnName="Giới tính" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sđt" ColumnName="Sđt" />
+                <ScalarProperty Name="Ngày_làm_thẻ" ColumnName="Ngày làm thẻ" />
+                <ScalarProperty Name="Ngày_hết_hạn" ColumnName="Ngày hết hạn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_showthongtinmuon" FunctionName="QUANLYTHUVIENModel.Store.SP_showthongtinmuon">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_showthongtinmuon_Result">
+                <ScalarProperty Name="Phiếu_mượn" ColumnName="Phiếu mượn" />
+                <ScalarProperty Name="Mã_độc_giả" ColumnName="Mã độc giả" />
+                <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Mã_sách" ColumnName="Mã sách" />
+                <ScalarProperty Name="Tên_Sách" ColumnName="Tên Sách" />
+                <ScalarProperty Name="Hạn_trả" ColumnName="Hạn trả" />
+                <ScalarProperty Name="Ngày_mượn" ColumnName="Ngày mượn" />
+                <ScalarProperty Name="Người_cho_mượn" ColumnName="Người cho mượn" />
+                <ScalarProperty Name="Mã_NV" ColumnName="Mã NV" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_showthongtinsach" FunctionName="QUANLYTHUVIENModel.Store.SP_showthongtinsach">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_showthongtinsach_Result">
+                <ScalarProperty Name="Mã_sách" ColumnName="Mã sách" />
+                <ScalarProperty Name="Tên_sách" ColumnName="Tên sách" />
+                <ScalarProperty Name="Nội_dung_tóm_tắt" ColumnName="Nội dung tóm tắt" />
+                <ScalarProperty Name="Số_trang" ColumnName="Số trang" />
+                <ScalarProperty Name="Giá_tiền" ColumnName="Giá tiền" />
+                <ScalarProperty Name="Số_lượng" ColumnName="Số lượng" />
+                <ScalarProperty Name="Ngày_nhập" ColumnName="Ngày nhập" />
+                <ScalarProperty Name="Tình_trạng" ColumnName="Tình trạng" />
+                <ScalarProperty Name="Nhà_xuất_bản" ColumnName="Nhà xuất bản" />
+                <ScalarProperty Name="Tác_giả" ColumnName="Tác giả" />
+                <ScalarProperty Name="Thể_loại" ColumnName="Thể loại" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_timkiemdocgia" FunctionName="QUANLYTHUVIENModel.Store.SP_timkiemdocgia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_timkiemdocgia_Result">
+                <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+                <ScalarProperty Name="HoTenDG" ColumnName="HoTenDG" />
+                <ScalarProperty Name="GioiTinhDG" ColumnName="GioiTinhDG" />
+                <ScalarProperty Name="NgaySinhDG" ColumnName="NgaySinhDG" />
+                <ScalarProperty Name="DiaChiDG" ColumnName="DiaChiDG" />
+                <ScalarProperty Name="DienThoaiDG" ColumnName="DienThoaiDG" />
+                <ScalarProperty Name="EmailDG" ColumnName="EmailDG" />
+                <ScalarProperty Name="NgayLamThe" ColumnName="NgayLamThe" />
+                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_timkiemnguoimuon" FunctionName="QUANLYTHUVIENModel.Store.SP_timkiemnguoimuon">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_timkiemnguoimuon_Result">
+                <ScalarProperty Name="Phiếu_mượn" ColumnName="Phiếu mượn" />
+                <ScalarProperty Name="Mã_độc_giả" ColumnName="Mã độc giả" />
+                <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Người_cho_mượn" ColumnName="Người cho mượn" />
+                <ScalarProperty Name="Mã_NV" ColumnName="Mã NV" />
+                <ScalarProperty Name="Tên_Sách" ColumnName="Tên Sách" />
+                <ScalarProperty Name="Mã_sách" ColumnName="Mã sách" />
+                <ScalarProperty Name="Hạn_trả" ColumnName="Hạn trả" />
+                <ScalarProperty Name="Ngày_mượn" ColumnName="Ngày mượn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_timkiemsach" FunctionName="QUANLYTHUVIENModel.Store.SP_timkiemsach">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_timkiemsach_Result">
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+                <ScalarProperty Name="NoiDungTT" ColumnName="NoiDungTT" />
+                <ScalarProperty Name="SoTrang" ColumnName="SoTrang" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
+                <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+                <ScalarProperty Name="MaTL" ColumnName="MaTL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QUANLYTHUVIENModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="timkiem" FunctionName="QUANLYTHUVIENModel.Store.timkiem">
             <ResultMapping>

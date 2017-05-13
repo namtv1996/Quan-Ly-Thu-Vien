@@ -38,6 +38,18 @@ namespace QuanLyThuVien
                 UserControl_Sach sach = new UserControl_Sach();
                 Showcontrols(sach);
             }
+            else
+                if (e.Node.Name == "muonsach")
+            {
+                UserControl_MuonSAch muon = new UserControl_MuonSAch();
+                Showcontrols(muon);
+            }
+         
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

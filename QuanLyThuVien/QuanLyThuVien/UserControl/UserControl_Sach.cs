@@ -16,8 +16,8 @@ namespace QuanLyThuVien
     {
         //biến trạng thái
         private string stage;
-        //khởi tạo 1 đối tượng entities;
-        QUANLYTHUVIENEntities1 db = new QUANLYTHUVIENEntities1();
+        //khởi tạo 1 đối tượng QUANLYTHUVIENEntities;
+        QUANLYTHUVIENEntities db = new QUANLYTHUVIENEntities();
         public UserControl_Sach()
         {
             InitializeComponent();
@@ -25,24 +25,25 @@ namespace QuanLyThuVien
         //Load lại danh sách
         private void Load_danhsach()
         {
-            dgv_danhsachsach.DataSource = (from x in db.Saches
-                                           join y in db.NhaXuatBans on x.MaNXB equals y.MaNXB
-                                           join z in db.TacGias on x.MaTG equals z.MaTG
-                                           join t in db.TheLoais on x.MaTL equals t.MaTL
-                                           select new
-                                           {
-                                               x.MaSach,
-                                               x.TenSach,
-                                               x.NoiDungTT,
-                                               x.SoTrang,
-                                               x.GiaTien,
-                                               x.SoLuong,
-                                               x.NgayNhap,
-                                               x.TinhTrang,
-                                               y.TenNXB,
-                                               z.HoTenTG,
-                                               t.TenTL
-                                           }).ToList();
+            //dgv_danhsachsach.DataSource = (from x in db.Saches
+            //                               join y in db.NhaXuatBans on x.MaNXB equals y.MaNXB
+            //                               join z in db.TacGias on x.MaTG equals z.MaTG
+            //                               join t in db.TheLoais on x.MaTL equals t.MaTL
+            //                               select new
+            //                               {
+            //                                   x.MaSach,
+            //                                   x.TenSach,
+            //                                   x.NoiDungTT,
+            //                                   x.SoTrang,
+            //                                   x.GiaTien,
+            //                                   x.SoLuong,
+            //                                   x.NgayNhap,
+            //                                   x.TinhTrang,
+            //                                   y.TenNXB,
+            //                                   z.HoTenTG,
+            //                                   t.TenTL
+            //                               }).ToList();
+            dgv_danhsachsach.DataSource = db.SP_showthongtinsach();
         }
         //load combobox
         private void Load_combobox()
@@ -88,16 +89,16 @@ namespace QuanLyThuVien
             //dgv_danhsachsach.Columns[14].Visible = false;
             //dgv_danhsachsach.Columns[15].Visible = false;
             //thêm các phần tử vào source của txtsearch
-            foreach (DataGridViewRow item in dgv_danhsachsach.Rows)
-            {
-                for (int i = 0; i < item.Cells.Count - 1; i++)
-                {
-                    if (item.Cells[i].Value != null)
-                    {
-                        txtSearch.AutoCompleteCustomSource.Add(item.Cells[i].Value.ToString());
-                    }
-                }
-            }
+            //foreach (DataGridViewRow item in dgv_danhsachsach.Rows)
+            //{
+            //    for (int i = 0; i < item.Cells.Count - 1; i++)
+            //    {
+            //        if (item.Cells[i].Value != null)
+            //        {
+            //            txtSearch.AutoCompleteCustomSource.Add(item.Cells[i].Value.ToString());
+            //        }
+            //    }
+            //}
 
         }
         //  CLICK TRÊN DATAGRIDVIEW
@@ -121,7 +122,7 @@ namespace QuanLyThuVien
             stage = "add";
             //khóa nút
             btnDelete.Enabled = false;
-            btnSearch.Enabled = false;
+            //btnSearch.Enabled = false;
             btnEdit.Enabled = false;
             btnSave.Enabled = true;
             //clear text
@@ -148,7 +149,7 @@ namespace QuanLyThuVien
                 stage = "edit";
                 //khóa nút
                 btnDelete.Enabled = false;
-                btnSearch.Enabled = false;
+                //btnSearch.Enabled = false;
                 btnAdd.Enabled = false;
                 btnSave.Enabled = true;
           
@@ -280,7 +281,20 @@ namespace QuanLyThuVien
             btnSave.Enabled = false;
             txt_masach.Enabled = false;
         }
-
+        //  TÌM KIẾM
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+            {
+                lbl_search.Visible =true;
+            }
+            else
+            {
+                lbl_search.Hide();
+            }
+           
+            dgv_danhsachsach.DataSource = db.SP_timkiemsach(txtSearch.Text);
+        }
     }
 
 }

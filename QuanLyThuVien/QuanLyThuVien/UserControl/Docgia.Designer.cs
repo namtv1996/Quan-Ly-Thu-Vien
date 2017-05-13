@@ -58,6 +58,7 @@
             this.lbl_diachi = new System.Windows.Forms.GroupBox();
             this.dgv_danhsachDG = new System.Windows.Forms.DataGridView();
             this.grb_thongtin = new System.Windows.Forms.GroupBox();
+            this.lbl_search = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.lbl_diachi.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbl_search);
             this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Location = new System.Drawing.Point(383, 14);
             this.groupBox2.Name = "groupBox2";
@@ -93,7 +95,6 @@
             // txtSearch
             // 
             this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(6, 18);
             this.txtSearch.Name = "txtSearch";
@@ -396,6 +397,18 @@
             this.grb_thongtin.TabStop = false;
             this.grb_thongtin.Text = "Thông Tin Độc Giả";
             // 
+            // lbl_search
+            // 
+            this.lbl_search.AutoSize = true;
+            this.lbl_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_search.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_search.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_search.Location = new System.Drawing.Point(140, 20);
+            this.lbl_search.Name = "lbl_search";
+            this.lbl_search.Size = new System.Drawing.Size(73, 16);
+            this.lbl_search.TabIndex = 31;
+            this.lbl_search.Text = "Nhập tên ";
+            // 
             // Docgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,5 +462,6 @@
         private System.Windows.Forms.GroupBox lbl_diachi;
         private System.Windows.Forms.DataGridView dgv_danhsachDG;
         private System.Windows.Forms.GroupBox grb_thongtin;
+        private System.Windows.Forms.Label lbl_search;
     }
 }

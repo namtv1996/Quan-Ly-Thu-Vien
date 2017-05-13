@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYTHUVIENModelStoreContainer" CdmEntityContainer="QUANLYTHUVIENEntities">
+    <EntitySetMapping Name="CT_PhieuMuon">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.CT_PhieuMuon">
+        <MappingFragment StoreEntitySet="CT_PhieuMuon">
+          <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="HanTra" ColumnName="HanTra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocGias">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.DocGia">
+        <MappingFragment StoreEntitySet="DocGia">
+          <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+          <ScalarProperty Name="HoTenDG" ColumnName="HoTenDG" />
+          <ScalarProperty Name="GioiTinhDG" ColumnName="GioiTinhDG" />
+          <ScalarProperty Name="NgaySinhDG" ColumnName="NgaySinhDG" />
+          <ScalarProperty Name="DiaChiDG" ColumnName="DiaChiDG" />
+          <ScalarProperty Name="DienThoaiDG" ColumnName="DienThoaiDG" />
+          <ScalarProperty Name="EmailDG" ColumnName="EmailDG" />
+          <ScalarProperty Name="NgayLamThe" ColumnName="NgayLamThe" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTenNV" ColumnName="HoTenNV" />
+          <ScalarProperty Name="GioiTinhNV" ColumnName="GioiTinhNV" />
+          <ScalarProperty Name="NgaySinhNV" ColumnName="NgaySinhNV" />
+          <ScalarProperty Name="DienThoaiNV" ColumnName="DienThoaiNV" />
+          <ScalarProperty Name="DiaChiNV" ColumnName="DiaChiNV" />
+          <ScalarProperty Name="EmailNV" ColumnName="EmailNV" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaXuatBans">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.NhaXuatBan">
+        <MappingFragment StoreEntitySet="NhaXuatBan">
+          <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
+          <ScalarProperty Name="TenNXB" ColumnName="TenNXB" />
+          <ScalarProperty Name="DiaChiNXB" ColumnName="DiaChiNXB" />
+          <ScalarProperty Name="DienThoaiNXB" ColumnName="DienThoaiNXB" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuMuons">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.PhieuMuon">
+        <MappingFragment StoreEntitySet="PhieuMuon">
+          <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+          <ScalarProperty Name="Ngaymuon" ColumnName="Ngaymuon" />
+          <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Saches">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.Sach">
+        <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="NoiDungTT" ColumnName="NoiDungTT" />
+          <ScalarProperty Name="SoTrang" ColumnName="SoTrang" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
+          <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+          <ScalarProperty Name="MaTL" ColumnName="MaTL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TacGias">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.TacGia">
+        <MappingFragment StoreEntitySet="TacGia">
+          <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+          <ScalarProperty Name="HoTenTG" ColumnName="HoTenTG" />
+          <ScalarProperty Name="DiaChiTG" ColumnName="DiaChiTG" />
+          <ScalarProperty Name="DienThoaiTG" ColumnName="DienThoaiTG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheLoais">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.TheLoai">
+        <MappingFragment StoreEntitySet="TheLoai">
+          <ScalarProperty Name="MaTL" ColumnName="MaTL" />
+          <ScalarProperty Name="TenTL" ColumnName="TenTL" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TraSaches">
+      <EntityTypeMapping TypeName="QUANLYTHUVIENModel.TraSach">
+        <MappingFragment StoreEntitySet="TraSach">
+          <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="Phat" ColumnName="Phat" />
+          <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="show_sach" FunctionName="QUANLYTHUVIENModel.Store.show_sach">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.show_sach_Result">
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="NoiDungTT" ColumnName="NoiDungTT" />
+          <ScalarProperty Name="SoTrang" ColumnName="SoTrang" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="TenNXB" ColumnName="TenNXB" />
+          <ScalarProperty Name="HoTenTG" ColumnName="HoTenTG" />
+          <ScalarProperty Name="TenTL" ColumnName="TenTL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_addphieumuon" FunctionName="QUANLYTHUVIENModel.Store.SP_addphieumuon" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QUANLYTHUVIENModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QUANLYTHUVIENModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QUANLYTHUVIENModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QUANLYTHUVIENModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QUANLYTHUVIENModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QUANLYTHUVIENModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="SP_showthongtindocgia" FunctionName="QUANLYTHUVIENModel.Store.SP_showthongtindocgia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_showthongtindocgia_Result">
+          <ScalarProperty Name="Mã_độc_giả" ColumnName="Mã độc giả" />
+          <ScalarProperty Name="Tên_độc_giả" ColumnName="Tên độc giả" />
+          <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+          <ScalarProperty Name="Địa_chỉ" ColumnName="Địa chỉ" />
+          <ScalarProperty Name="Giới_tính" ColumnName="Giới tính" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sđt" ColumnName="Sđt" />
+          <ScalarProperty Name="Ngày_làm_thẻ" ColumnName="Ngày làm thẻ" />
+          <ScalarProperty Name="Ngày_hết_hạn" ColumnName="Ngày hết hạn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_showthongtinmuon" FunctionName="QUANLYTHUVIENModel.Store.SP_showthongtinmuon">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_showthongtinmuon_Result">
+          <ScalarProperty Name="Phiếu_mượn" ColumnName="Phiếu mượn" />
+          <ScalarProperty Name="Mã_độc_giả" ColumnName="Mã độc giả" />
+          <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+          <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+          <ScalarProperty Name="Mã_sách" ColumnName="Mã sách" />
+          <ScalarProperty Name="Tên_Sách" ColumnName="Tên Sách" />
+          <ScalarProperty Name="Hạn_trả" ColumnName="Hạn trả" />
+          <ScalarProperty Name="Ngày_mượn" ColumnName="Ngày mượn" />
+          <ScalarProperty Name="Người_cho_mượn" ColumnName="Người cho mượn" />
+          <ScalarProperty Name="Mã_NV" ColumnName="Mã NV" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_showthongtinsach" FunctionName="QUANLYTHUVIENModel.Store.SP_showthongtinsach">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_showthongtinsach_Result">
+          <ScalarProperty Name="Mã_sách" ColumnName="Mã sách" />
+          <ScalarProperty Name="Tên_sách" ColumnName="Tên sách" />
+          <ScalarProperty Name="Nội_dung_tóm_tắt" ColumnName="Nội dung tóm tắt" />
+          <ScalarProperty Name="Số_trang" ColumnName="Số trang" />
+          <ScalarProperty Name="Giá_tiền" ColumnName="Giá tiền" />
+          <ScalarProperty Name="Số_lượng" ColumnName="Số lượng" />
+          <ScalarProperty Name="Ngày_nhập" ColumnName="Ngày nhập" />
+          <ScalarProperty Name="Tình_trạng" ColumnName="Tình trạng" />
+          <ScalarProperty Name="Nhà_xuất_bản" ColumnName="Nhà xuất bản" />
+          <ScalarProperty Name="Tác_giả" ColumnName="Tác giả" />
+          <ScalarProperty Name="Thể_loại" ColumnName="Thể loại" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_timkiemdocgia" FunctionName="QUANLYTHUVIENModel.Store.SP_timkiemdocgia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_timkiemdocgia_Result">
+          <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+          <ScalarProperty Name="HoTenDG" ColumnName="HoTenDG" />
+          <ScalarProperty Name="GioiTinhDG" ColumnName="GioiTinhDG" />
+          <ScalarProperty Name="NgaySinhDG" ColumnName="NgaySinhDG" />
+          <ScalarProperty Name="DiaChiDG" ColumnName="DiaChiDG" />
+          <ScalarProperty Name="DienThoaiDG" ColumnName="DienThoaiDG" />
+          <ScalarProperty Name="EmailDG" ColumnName="EmailDG" />
+          <ScalarProperty Name="NgayLamThe" ColumnName="NgayLamThe" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_timkiemnguoimuon" FunctionName="QUANLYTHUVIENModel.Store.SP_timkiemnguoimuon">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_timkiemnguoimuon_Result">
+          <ScalarProperty Name="Phiếu_mượn" ColumnName="Phiếu mượn" />
+          <ScalarProperty Name="Mã_độc_giả" ColumnName="Mã độc giả" />
+          <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+          <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+          <ScalarProperty Name="Người_cho_mượn" ColumnName="Người cho mượn" />
+          <ScalarProperty Name="Mã_NV" ColumnName="Mã NV" />
+          <ScalarProperty Name="Tên_Sách" ColumnName="Tên Sách" />
+          <ScalarProperty Name="Mã_sách" ColumnName="Mã sách" />
+          <ScalarProperty Name="Hạn_trả" ColumnName="Hạn trả" />
+          <ScalarProperty Name="Ngày_mượn" ColumnName="Ngày mượn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_timkiemsach" FunctionName="QUANLYTHUVIENModel.Store.SP_timkiemsach">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.SP_timkiemsach_Result">
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="NoiDungTT" ColumnName="NoiDungTT" />
+          <ScalarProperty Name="SoTrang" ColumnName="SoTrang" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
+          <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+          <ScalarProperty Name="MaTL" ColumnName="MaTL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QUANLYTHUVIENModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="timkiem" FunctionName="QUANLYTHUVIENModel.Store.timkiem">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYTHUVIENModel.timkiem_Result">
+          <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+          <ScalarProperty Name="HoTenDG" ColumnName="HoTenDG" />
+          <ScalarProperty Name="GioiTinhDG" ColumnName="GioiTinhDG" />
+          <ScalarProperty Name="NgaySinhDG" ColumnName="NgaySinhDG" />
+          <ScalarProperty Name="DiaChiDG" ColumnName="DiaChiDG" />
+          <ScalarProperty Name="DienThoaiDG" ColumnName="DienThoaiDG" />
+          <ScalarProperty Name="EmailDG" ColumnName="EmailDG" />
+          <ScalarProperty Name="NgayLamThe" ColumnName="NgayLamThe" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

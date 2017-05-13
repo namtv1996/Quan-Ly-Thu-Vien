@@ -15,10 +15,10 @@ namespace QuanLyThuVien
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class QUANLYTHUVIENEntities1 : DbContext
+    public partial class QUANLYTHUVIENEntities : DbContext
     {
-        public QUANLYTHUVIENEntities1()
-            : base("name=QUANLYTHUVIENEntities1")
+        public QUANLYTHUVIENEntities()
+            : base("name=QUANLYTHUVIENEntities")
         {
         }
     
@@ -41,6 +41,35 @@ namespace QuanLyThuVien
         public virtual ObjectResult<show_sach_Result> show_sach()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<show_sach_Result>("show_sach");
+        }
+    
+        public virtual int SP_addphieumuon(Nullable<int> maphieu, string masach, string madocgia, string manhanvien, Nullable<System.DateTime> ngaymuon, Nullable<System.DateTime> ngaytra)
+        {
+            var maphieuParameter = maphieu.HasValue ?
+                new ObjectParameter("Maphieu", maphieu) :
+                new ObjectParameter("Maphieu", typeof(int));
+    
+            var masachParameter = masach != null ?
+                new ObjectParameter("Masach", masach) :
+                new ObjectParameter("Masach", typeof(string));
+    
+            var madocgiaParameter = madocgia != null ?
+                new ObjectParameter("Madocgia", madocgia) :
+                new ObjectParameter("Madocgia", typeof(string));
+    
+            var manhanvienParameter = manhanvien != null ?
+                new ObjectParameter("Manhanvien", manhanvien) :
+                new ObjectParameter("Manhanvien", typeof(string));
+    
+            var ngaymuonParameter = ngaymuon.HasValue ?
+                new ObjectParameter("Ngaymuon", ngaymuon) :
+                new ObjectParameter("Ngaymuon", typeof(System.DateTime));
+    
+            var ngaytraParameter = ngaytra.HasValue ?
+                new ObjectParameter("Ngaytra", ngaytra) :
+                new ObjectParameter("Ngaytra", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_addphieumuon", maphieuParameter, masachParameter, madocgiaParameter, manhanvienParameter, ngaymuonParameter, ngaytraParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -139,6 +168,48 @@ namespace QuanLyThuVien
                 new ObjectParameter("new_diagramname", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual ObjectResult<SP_showthongtindocgia_Result> SP_showthongtindocgia()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_showthongtindocgia_Result>("SP_showthongtindocgia");
+        }
+    
+        public virtual ObjectResult<SP_showthongtinmuon_Result> SP_showthongtinmuon()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_showthongtinmuon_Result>("SP_showthongtinmuon");
+        }
+    
+        public virtual ObjectResult<SP_showthongtinsach_Result> SP_showthongtinsach()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_showthongtinsach_Result>("SP_showthongtinsach");
+        }
+    
+        public virtual ObjectResult<SP_timkiemdocgia_Result> SP_timkiemdocgia(string ten)
+        {
+            var tenParameter = ten != null ?
+                new ObjectParameter("ten", ten) :
+                new ObjectParameter("ten", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_timkiemdocgia_Result>("SP_timkiemdocgia", tenParameter);
+        }
+    
+        public virtual ObjectResult<SP_timkiemnguoimuon_Result> SP_timkiemnguoimuon(string ten)
+        {
+            var tenParameter = ten != null ?
+                new ObjectParameter("ten", ten) :
+                new ObjectParameter("ten", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_timkiemnguoimuon_Result>("SP_timkiemnguoimuon", tenParameter);
+        }
+    
+        public virtual ObjectResult<SP_timkiemsach_Result> SP_timkiemsach(string ten)
+        {
+            var tenParameter = ten != null ?
+                new ObjectParameter("ten", ten) :
+                new ObjectParameter("ten", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_timkiemsach_Result>("SP_timkiemsach", tenParameter);
         }
     
         public virtual int sp_upgraddiagrams()

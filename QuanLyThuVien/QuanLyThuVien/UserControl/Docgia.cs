@@ -14,8 +14,8 @@ namespace QuanLyThuVien
 
     public partial class Docgia : UserControl
     {
-        // Khởi tạo đối tượng entities
-        QUANLYTHUVIENEntities1 db = new QUANLYTHUVIENEntities1();
+        // Khởi tạo đối tượng QUANLYTHUVIENEntities
+        QUANLYTHUVIENEntities db = new QUANLYTHUVIENEntities();
         //Trạng thái chức năng
         private string stage;
 
@@ -28,21 +28,21 @@ namespace QuanLyThuVien
         private void Docgia_Load(object sender, EventArgs e)
         {
             //Gán data cho datagridview
-            // dgv_danhsachDG.DataSource = db.DocGias.Select(n => n).ToList();
-            dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from DocGia").ToList();
+            dgv_danhsachDG.DataSource = db.SP_showthongtindocgia();
+            //dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from DocGia").ToList();
 
             //Đổi Tên Columns datagridview
-            dgv_danhsachDG.Columns[0].HeaderText = "Mã ĐG";
-            dgv_danhsachDG.Columns[1].HeaderText = "Họ Tên";
-            dgv_danhsachDG.Columns[2].HeaderText = "Giới Tính";
-            dgv_danhsachDG.Columns[3].HeaderText = "Ngày Sinh";
-            dgv_danhsachDG.Columns[4].HeaderText = "Địa Chỉ";
-            dgv_danhsachDG.Columns[5].HeaderText = "Điện Thoại";
-            dgv_danhsachDG.Columns[6].HeaderText = "Email";
-            dgv_danhsachDG.Columns[7].HeaderText = "Ngày Làm Thẻ";
-            dgv_danhsachDG.Columns[8].HeaderText = "Ngày Hết Hạn";
+            //dgv_danhsachDG.Columns[0].HeaderText = "Mã ĐG";
+            //dgv_danhsachDG.Columns[1].HeaderText = "Họ Tên";
+            //dgv_danhsachDG.Columns[2].HeaderText = "Giới Tính";
+            //dgv_danhsachDG.Columns[3].HeaderText = "Ngày Sinh";
+            //dgv_danhsachDG.Columns[4].HeaderText = "Địa Chỉ";
+            //dgv_danhsachDG.Columns[5].HeaderText = "Điện Thoại";
+            //dgv_danhsachDG.Columns[6].HeaderText = "Email";
+            //dgv_danhsachDG.Columns[7].HeaderText = "Ngày Làm Thẻ";
+            //dgv_danhsachDG.Columns[8].HeaderText = "Ngày Hết Hạn";
             //ẩn cột
-            dgv_danhsachDG.Columns[9].Visible = false;// = "Mã Phiếu Mượn";
+            //dgv_danhsachDG.Columns[9].Visible = false;// = "Mã Phiếu Mượn";
             //Tự Động căn chỉnh kích thước của hàng và cột datagridview
             dgv_danhsachDG.AutoResizeColumns();
             dgv_danhsachDG.AutoResizeRows();
@@ -51,16 +51,16 @@ namespace QuanLyThuVien
             //không cho thay đổi mã
             txt_madg.Enabled = false;
             //thêm các phần tử vào source của txtsearch
-            foreach(DataGridViewRow item in dgv_danhsachDG.Rows)
-            {
-                for(int i = 0; i < item.Cells.Count - 1; i++)
-                {
-                    if (item.Cells[i].Value != null)
-                    {
-                        txtSearch.AutoCompleteCustomSource.Add(item.Cells[i].Value.ToString());
-                    }
-                }
-            }
+            //foreach (DataGridViewRow item in dgv_danhsachDG.Rows)
+            //{
+            //    for (int i = 0; i < item.Cells.Count - 1; i++)
+            //    {
+            //        if (item.Cells[i].Value != null)
+            //        {
+            //            txtSearch.AutoCompleteCustomSource.Add(item.Cells[i].Value.ToString());
+            //        }
+            //    }
+            //}
 
         }
         //  CLICK TRÊN DATAGRIDVIEW
@@ -70,43 +70,18 @@ namespace QuanLyThuVien
             //Load các thông tin độc giả lên group thông tin
 
             txt_madg.Text = dgv_danhsachDG.CurrentRow.Cells[0].Value.ToString();
-            if (dgv_danhsachDG.CurrentRow.Cells[1].Value != null)
-            {
-                txt_hoten.Text = dgv_danhsachDG.CurrentRow.Cells[1].Value.ToString();
-            }
-            else { txt_hoten.Text = ""; }
-            if (dgv_danhsachDG.CurrentRow.Cells[6].Value != null)
-            {
-                txt_email.Text = dgv_danhsachDG.CurrentRow.Cells[6].Value.ToString();
-            }
-            else { txt_email.Text = ""; }
-            if (dgv_danhsachDG.CurrentRow.Cells[4].Value != null)
-            {
-                txt_diachi.Text = dgv_danhsachDG.CurrentRow.Cells[4].Value.ToString();
-            }
-            else { txt_sdt.Text = ""; }
-            if (dgv_danhsachDG.CurrentRow.Cells[5].Value != null)
-            {
-                txt_sdt.Text = dgv_danhsachDG.CurrentRow.Cells[5].Value.ToString();
-            }
-            else { txt_sdt.Text = ""; }
-            if (dgv_danhsachDG.CurrentRow.Cells[2].Value.ToString() == "Nam")
+            txt_hoten.Text = dgv_danhsachDG.CurrentRow.Cells[1].Value.ToString();
+            dtp_ngaysinh.Text = dgv_danhsachDG.CurrentRow.Cells[2].Value.ToString();
+            txt_diachi.Text = dgv_danhsachDG.CurrentRow.Cells[3].Value.ToString();
+            if (dgv_danhsachDG.CurrentRow.Cells[4].Value.ToString() == "Nam")
             {
                 rbt_nam.Checked = true;
             }
-            else
-            {
-                if (dgv_danhsachDG.CurrentRow.Cells[2].Value.ToString() == "Nữ") { rbt_nu.Checked = true; }
-                else
-                {
-                    rbt_nam.Checked = false;
-                    rbt_nu.Checked = false;
-                }
-            }
-
-            dtp_ngaysinh.Value = Convert.ToDateTime(dgv_danhsachDG.CurrentRow.Cells[3].Value.ToString());
-            dtp_ngaylamthe.Value = Convert.ToDateTime(dgv_danhsachDG.CurrentRow.Cells[7].Value.ToString());
-            dtp_ngayhethan.Value = Convert.ToDateTime(dgv_danhsachDG.CurrentRow.Cells[8].Value.ToString());
+            else { rbt_nu.Checked = false; }
+            txt_email.Text = dgv_danhsachDG.CurrentRow.Cells[5].Value.ToString();
+            txt_sdt.Text = dgv_danhsachDG.CurrentRow.Cells[6].Value.ToString();
+            dtp_ngaylamthe.Text = dgv_danhsachDG.CurrentRow.Cells[7].Value.ToString();
+            dtp_ngayhethan.Text = dgv_danhsachDG.CurrentRow.Cells[8].Value.ToString();
 
         }
 
@@ -159,9 +134,9 @@ namespace QuanLyThuVien
                 btnDelete.Enabled = false;
                 btnAdd.Enabled = false;
                 btnSave.Enabled = true;
-               
+
             }
-           
+
         }
         //XÓA 
         private void btnDelete_Click_1(object sender, EventArgs e)
@@ -191,7 +166,7 @@ namespace QuanLyThuVien
             {
                 try
                 {
-                    if (txt_madg.Text == "") { MessageBox.Show("Nhập vào mã độc giả!"); return; }
+                    if (txt_madg.Text == ""||(rbt_nam.Checked==false&&rbt_nu.Checked==false)) { MessageBox.Show("Nhập vào mã độc giả!"); return; }
                     else
                         //gán thông tin cho độc giả
                         dg.MaDG = txt_madg.Text;
@@ -207,7 +182,7 @@ namespace QuanLyThuVien
                     db.SaveChanges();
                     MessageBox.Show("Thành công!");
                     //load lại danh sách
-                    dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from DocGia").ToList();                
+                    dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from DocGia").ToList();
 
                 }
                 catch (Exception ex)
@@ -220,26 +195,26 @@ namespace QuanLyThuVien
             {
                 try
                 {
-                    
-                    
-                        dg = db.DocGias.SingleOrDefault(n => n.MaDG == txt_madg.Text);
-                        //gán thông tin cho độc giả
-                        dg.MaDG = txt_madg.Text;
-                        dg.HoTenDG = txt_hoten.Text;
-                        dg.GioiTinhDG = (rbt_nam.Checked) ? "Nam" : "Nữ";
-                        dg.NgaySinhDG = DateTime.Parse(dtp_ngaysinh.Value.ToString());
-                        dg.DiaChiDG = txt_diachi.Text;
-                        dg.DienThoaiDG = txt_sdt.Text;
-                        dg.EmailDG = txt_email.Text;
-                        dg.NgayLamThe = DateTime.Parse(dtp_ngaylamthe.Value.ToString());
-                        dg.NgayHetHan = DateTime.Parse(dtp_ngayhethan.Value.ToString());
-                        //Lưu thay đổi
-                        db.SaveChanges();
-                        MessageBox.Show("Thành công!");
-                        //load lại danh sách
-                        dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from DocGia").ToList();
 
-                    
+
+                    dg = db.DocGias.SingleOrDefault(n => n.MaDG == txt_madg.Text);
+                    //gán thông tin cho độc giả
+                    dg.MaDG = txt_madg.Text;
+                    dg.HoTenDG = txt_hoten.Text;
+                    dg.GioiTinhDG = (rbt_nam.Checked) ? "Nam" : "Nữ";
+                    dg.NgaySinhDG = DateTime.Parse(dtp_ngaysinh.Value.ToString());
+                    dg.DiaChiDG = txt_diachi.Text;
+                    dg.DienThoaiDG = txt_sdt.Text;
+                    dg.EmailDG = txt_email.Text;
+                    dg.NgayLamThe = DateTime.Parse(dtp_ngaylamthe.Value.ToString());
+                    dg.NgayHetHan = DateTime.Parse(dtp_ngayhethan.Value.ToString());
+                    //Lưu thay đổi
+                    db.SaveChanges();
+                    MessageBox.Show("Thành công!");
+                    //load lại danh sách
+                    dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from DocGia").ToList();
+
+
                 }
                 catch (Exception ex)
                 {
@@ -247,13 +222,20 @@ namespace QuanLyThuVien
                 }
             }
         }
-
+        //TÌM KIẾM
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            object[] para = { new SqlParameter("@key",txtSearch.Text)};
-
-            //dgv_danhsachDG.DataSource = db.Saches.SqlQuery("select *from sach where tensach like N'%'"+txtSearch.Text+"N'%'").ToList();
-            dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from docgia where tensach like N'%'"+para+"N'%'").ToList();
+            //object[] para = { new SqlParameter("@key",txtSearch.Text)};
+            if (txtSearch.Text == "")
+            {
+                lbl_search.Visible = true;
+            }
+            else
+            {
+                lbl_search.Hide();
+            }
+            dgv_danhsachDG.DataSource = db.SP_timkiemdocgia(txtSearch.Text);
+            //dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from docgia where tensach like N'%'"+para+"N'%'").ToList();
 
         }
     }

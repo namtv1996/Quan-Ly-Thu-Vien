@@ -5,7 +5,7 @@
       <PropertyRef Name="MaPhieu" />
       <PropertyRef Name="MaSach" />
     </Key>
-    <Property Name="MaPhieu" Type="String" Nullable="false" />
+    <Property Name="MaPhieu" Type="Int32" Nullable="false" />
     <Property Name="MaSach" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="HanTra" Type="DateTime" Precision="3" />
     <NavigationProperty Name="PhieuMuon" Relationship="Self.FK_CT_PhieuMuon_PhieuMuon" FromRole="CT_PhieuMuon" ToRole="PhieuMuon" />
@@ -56,8 +56,8 @@
     <Key>
       <PropertyRef Name="MaPhieu" />
     </Key>
-    <Property Name="MaPhieu" Type="String" Nullable="false" />
-    <Property Name="Ngaymuon" Type="DateTime" Precision="3" DefaultValue="getdate()" />
+    <Property Name="MaPhieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ngaymuon" Type="DateTime" Precision="3" />
     <Property Name="MaDG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CT_PhieuMuon" Relationship="Self.FK_CT_PhieuMuon_PhieuMuon" FromRole="PhieuMuon" ToRole="CT_PhieuMuon" />
@@ -120,7 +120,7 @@
       <PropertyRef Name="MaPhieu" />
       <PropertyRef Name="MaSach" />
     </Key>
-    <Property Name="MaPhieu" Type="String" Nullable="false" />
+    <Property Name="MaPhieu" Type="Int32" Nullable="false" />
     <Property Name="MaSach" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Phat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NgayTra" Type="DateTime" Precision="3" />
@@ -249,7 +249,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QUANLYTHUVIENEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CT_PhieuMuon" EntityType="Self.CT_PhieuMuon" />
     <EntitySet Name="DocGias" EntityType="Self.DocGia" />
     <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />

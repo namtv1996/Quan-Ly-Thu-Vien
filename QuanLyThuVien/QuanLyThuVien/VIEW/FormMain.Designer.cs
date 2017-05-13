@@ -83,6 +83,7 @@
             this.Controls.Add(this.tre);
             this.Name = "FormMain";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
 
         }
