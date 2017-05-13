@@ -150,6 +150,12 @@
     <Compile Include="UserControl\UserControl_MuonSAch.Designer.cs">
       <DependentUpon>UserControl_MuonSAch.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\UserControl_Huongdna.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserControl_Huongdna.Designer.cs">
+      <DependentUpon>UserControl_Huongdna.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControl\UserControl_Huongdna.resx">
+      <DependentUpon>UserControl_Huongdna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UserControl_Sach.resx">
       <DependentUpon>UserControl_Sach.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +225,7 @@
     <Content Include="Resources\1473536499_Save.png" />
     <Content Include="Resources\1473536520_Edit.png" />
     <Content Include="Resources\Help.gif" />
+    <Content Include="Resources\Huongdan.htm" />
     <Content Include="Resources\timkiem.png" />
     <Content Include="Resources\trash-delete-16x16.gif" />
     <Content Include="Resources\ẽit.png" />

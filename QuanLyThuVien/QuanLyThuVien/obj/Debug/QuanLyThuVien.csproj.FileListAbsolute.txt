@@ -30,3 +30,4 @@ C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Ho
 C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Properties.Resources.resources
 C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Docgia.resources
 C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.GenerateResource.Cache
+C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.UserControl_Huongdna.resources

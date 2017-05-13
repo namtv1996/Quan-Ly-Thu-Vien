@@ -44,6 +44,12 @@ namespace QuanLyThuVien
                 UserControl_MuonSAch muon = new UserControl_MuonSAch();
                 Showcontrols(muon);
             }
+            else
+                if (e.Node.Name == "huongdan")
+            {
+                UserControl_Huongdna huong = new UserControl_Huongdna();
+                Showcontrols(huong);
+            }
          
         }
 

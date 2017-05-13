@@ -30,9 +30,8 @@
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Độc Giả");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Sách");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Mượn Sách");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Trả Sách");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Hướng Dẫn");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Mượn Trả Sách");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Hướng Dẫn");
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tre = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
@@ -40,7 +39,7 @@
             // pnlMain
             // 
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(121, 0);
+            this.pnlMain.Location = new System.Drawing.Point(146, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(615, 497);
             this.pnlMain.TabIndex = 0;
@@ -59,18 +58,15 @@
             treeNode2.Name = "sach";
             treeNode2.Text = "Sách";
             treeNode3.Name = "muonsach";
-            treeNode3.Text = "Mượn Sách";
-            treeNode4.Name = "trasach";
-            treeNode4.Text = "Trả Sách";
-            treeNode5.Name = "huongdan";
-            treeNode5.Text = "Hướng Dẫn";
+            treeNode3.Text = "Mượn Trả Sách";
+            treeNode4.Name = "huongdan";
+            treeNode4.Text = "Hướng Dẫn";
             this.tre.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
-            treeNode4,
-            treeNode5});
-            this.tre.Size = new System.Drawing.Size(121, 497);
+            treeNode4});
+            this.tre.Size = new System.Drawing.Size(146, 497);
             this.tre.TabIndex = 29;
             this.tre.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tre_AfterSelect);
             // 
@@ -78,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 497);
+            this.ClientSize = new System.Drawing.Size(761, 497);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.tre);
             this.Name = "FormMain";
