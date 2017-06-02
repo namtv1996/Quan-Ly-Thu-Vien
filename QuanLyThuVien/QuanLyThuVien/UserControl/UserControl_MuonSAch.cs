@@ -22,27 +22,27 @@ namespace QuanLyThuVien
         QUANLYTHUVIENEntities db = new QUANLYTHUVIENEntities();
         private void LoadDanhSach()
         {
-            //dgv_danhsachphieumuon.DataSource = (from x in db.PhieuMuons
-            //                                    join y in db.CT_PhieuMuon on x.MaPhieu equals y.MaPhieu
-            //                                    join z in db.Saches on y.MaSach equals z.MaSach
-            //                                    join a in db.DocGias on x.MaDG equals a.MaDG
-            //                                    join b in db.NhanViens on x.MaNV equals b.MaNV
-            //                                    select new
-            //                                    {
-            //                                        a.MaDG,
-            //                                        a.HoTenDG,
-            //                                        a.NgaySinhDG,
-            //                                        b.HoTenNV,
-            //                                        b.MaNV,
-            //                                        z.TenSach,
-            //                                        z.MaSach,
-            //                                        y.HanTra,
-            //                                        x.Ngaymuon
-            //                                    }).ToList();
+            dgv_danhsachphieumuon.DataSource = (from x in db.PhieuMuons
+                                                join y in db.CT_PhieuMuon on x.MaPhieu equals y.MaPhieu
+                                                join z in db.Saches on y.MaSach equals z.MaSach
+                                                join a in db.DocGias on x.MaDG equals a.MaDG
+                                                join b in db.NhanViens on x.MaNV equals b.MaNV
+                                                select new
+                                                {
+                                                    a.MaDG,
+                                                    a.HoTenDG,
+                                                    a.NgaySinhDG,
+                                                    b.HoTenNV,
+                                                    b.MaNV,
+                                                    z.TenSach,
+                                                    z.MaSach,
+                                                    y.HanTra,
+                                                    x.Ngaymuon
+                                                }).ToList();
             //gọi store procedure
             //dùng thủ tục show thông tin mượn sách
-            dgv_danhsachphieumuon.DataSource = db.SP_showthongtinmuon();
-            btn_trasach.Enabled = false;
+            //dgv_danhsachphieumuon.DataSource = db.Saches.ToList()
+            ;            btn_trasach.Enabled = false;
         }
 
         private void UserControl_MuonSAch_Load(object sender, EventArgs e)
