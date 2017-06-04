@@ -83,7 +83,7 @@ namespace QuanLyThuVien
             {
                 rbt_nam.Checked = true;
             }
-            else { rbt_nu.Checked = false; }
+            else { rbt_nu.Checked = true; }
             txt_email.Text = dgv_danhsachDG.CurrentRow.Cells[5].Value.ToString();
             txt_sdt.Text = dgv_danhsachDG.CurrentRow.Cells[6].Value.ToString();
             dtp_ngaylamthe.Text = dgv_danhsachDG.CurrentRow.Cells[7].Value.ToString();
@@ -244,6 +244,11 @@ namespace QuanLyThuVien
             }
             dgv_danhsachDG.DataSource = db.SP_timkiemdocgia(txtSearch.Text);
             //dgv_danhsachDG.DataSource = db.DocGias.SqlQuery("select *from docgia where tensach like N'%'"+para+"N'%'").ToList();
+
+        }
+
+        private void dgv_danhsachDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

@@ -29,6 +29,7 @@ namespace QuanLyThuVien
                                                 join b in db.NhanViens on x.MaNV equals b.MaNV
                                                 select new
                                                 {
+                                                    x.MaPhieu,
                                                     a.MaDG,
                                                     a.HoTenDG,
                                                     a.NgaySinhDG,
@@ -42,7 +43,7 @@ namespace QuanLyThuVien
             //gọi store procedure
             //dùng thủ tục show thông tin mượn sách
             //dgv_danhsachphieumuon.DataSource = db.Saches.ToList()
-            ;            btn_trasach.Enabled = false;
+            ; btn_trasach.Enabled = false;
         }
 
         private void UserControl_MuonSAch_Load(object sender, EventArgs e)
@@ -79,77 +80,82 @@ namespace QuanLyThuVien
                     }
                     else
                     {
-                        //SqlParameter[] para = new SqlParameter[]
-                        //{
-                        //    new SqlParameter("@Maphieu", txt_maphieu.Text),
-                        //    new SqlParameter("@Masach", txt_masach.Text),
-                        //    new SqlParameter("@Madocgia", txt_madocgia.Text),
-                        //    new SqlParameter("@Manhanvien", txt_manv.Text),
-                        //    new SqlParameter("@Ngaymuon", dtp_ngaymuon.Text),
-                        //    new SqlParameter("@Ngaytra", dtp_ngaytra.Text)
-
-                        //};
-                        //if (db.CT_PhieuMuon.SingleOrDefault(n => n.MaPhieu == int.Parse(txt_maphieu.Text) && n.MaSach == txt_masach.Text) != null)
-                        //{
-                        //    MessageBox.Show("dữ liệu đã tồn tại!");
-                        //}
-                        //else
-                        //{
-
+                        string masach = txt_masach.Text;
+                        string madg = txt_madocgia.Text;
                         int maphieu = int.Parse(txt_maphieu.Text);
+                        //lay quyen sach có mã sach
+                        var s = db.Saches.SingleOrDefault(n => n.MaSach == masach);
 
-                        //DateTime ngaymuon = DateTime.Parse(dtp_ngaymuon.Text);
-                        //DateTime ngaytra = DateTime.Parse(dtp_ngaytra.Text);
-                        //db.SP_addphieumuon(maphieu, txt_masach.Text, txt_madocgia.Text, txt_manv.Text,ngaymuon,ngaytra);
-                        //MessageBox.Show("Thành công!");
-
-
-                        if (db.CT_PhieuMuon.SingleOrDefault(x => x.MaPhieu == maphieu && x.MaSach == txt_masach.Text) != null) { MessageBox.Show("Đã tồn tại!"); }
-                        if (db.PhieuMuons.SingleOrDefault(x => x.MaPhieu == maphieu && x.MaDG != txt_madocgia.Text) != null) { MessageBox.Show("Một phiếu mượn chỉ có 1 người mượn!"); }
-                        else
+                        //con sach moi cho muon
+                        if (s.SoLuong > 0)
                         {
-                            PhieuMuon p = new PhieuMuon();
-                            CT_PhieuMuon c = new CT_PhieuMuon();
-                            if (db.PhieuMuons.First(x => x.MaPhieu == maphieu) != null)
-                            {
-                                c.MaPhieu = int.Parse(txt_maphieu.Text);
-                                c.MaSach = txt_masach.Text;
-                                c.HanTra = DateTime.Parse(dtp_ngaytra.Text);
-                                db.CT_PhieuMuon.Add(c);
-                                MessageBox.Show("Thành Công!");
-                                db.SaveChanges();
-                            }
+                            CT_PhieuMuon ct = new CT_PhieuMuon();
+                            var p = db.PhieuMuons.SingleOrDefault(n => n.MaDG == madg);
+                            //kiểm tra sách được mượn chưa
+                            if (db.CT_PhieuMuon.SingleOrDefault(x => x.MaPhieu == maphieu && x.MaSach == masach) != null) { MessageBox.Show("Mỗi sách chỉ được mượn 1 quyển"); }
                             else
                             {
+                                //doc gia da co phieu muon
+                                if (p != null)
+                                {
+                                    if (p.MaPhieu != maphieu) { MessageBox.Show("nhập sai mã phiếu"); }
+                                    else
+                                    {
+                                        ct.MaPhieu = p.MaPhieu;
+                                        ct.MaSach = masach;
+                                        ct.HanTra = dtp_ngaytra.Value;
+                                        db.CT_PhieuMuon.Add(ct);
+                                        //giam so luong sach;
+                                        db.Saches.SingleOrDefault(x => x.MaSach == masach).SoLuong--;
+                                        db.SaveChanges();
 
-                                p.MaPhieu = int.Parse(txt_maphieu.Text);
-                                p.MaDG = txt_madocgia.Text;
-                                p.Ngaymuon = DateTime.Parse(dtp_ngaymuon.Text);
-                                p.MaNV = txt_manv.Text;
-                                db.PhieuMuons.Add(p);
-
-
-                                c.MaPhieu = int.Parse(txt_maphieu.Text);
-                                c.MaSach = txt_masach.Text;
-                                c.HanTra = DateTime.Parse(dtp_ngaytra.Text);
-                                db.CT_PhieuMuon.Add(c);
-                                MessageBox.Show("Thành Công!");
-                                db.SaveChanges();
-
+                                        LoadDanhSach();
+                                        MessageBox.Show("thành công");
+                                    }
+                                }
+                                else
+                                {
+                                    //them vao bang phieu muon truoc
+                                    PhieuMuon phieu = new PhieuMuon();
+                                    phieu.MaPhieu = int.Parse(txt_maphieu.Text);
+                                    phieu.MaDG = txt_madocgia.Text;
+                                    phieu.MaNV = txt_manv.Text;
+                                    phieu.Ngaymuon = dtp_ngaymuon.Value;
+                                    db.PhieuMuons.Add(phieu);
+                                    //them vao bang ct_phieumuon sau
+                                    ct.MaPhieu = int.Parse(txt_maphieu.Text);
+                                    ct.MaSach = masach;
+                                    ct.HanTra = dtp_ngaytra.Value;
+                                    db.CT_PhieuMuon.Add(ct);
+                                    db.Saches.SingleOrDefault(x => x.MaSach == masach).SoLuong--;
+                                    db.SaveChanges();
+                                    LoadDanhSach();
+                                    MessageBox.Show("thành công");
+                                }
                             }
 
-
                         }
-
-                        LoadDanhSach();
+                        else
+                        {
+                            MessageBox.Show("Sách đã hết");
+                        }
 
 
                     }
+
+                    LoadDanhSach();
+
+
                 }
+
                 catch (SqlException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+            else
+            {
+
             }
             btnSave.Enabled = false;
         }
@@ -178,8 +184,12 @@ namespace QuanLyThuVien
 
                     //xóa trong bảng chi tiết trước
                     int maphieu = int.Parse(txt_maphieu.Text);
-                    var ct_phieu = db.CT_PhieuMuon.SingleOrDefault(x => x.MaPhieu == maphieu && x.MaSach == txt_masach.Text);
+
+                    string masach = (txt_masach.Text);
+                    var ct_phieu = db.CT_PhieuMuon.SingleOrDefault(x => x.MaPhieu == maphieu && x.MaSach == masach);
                     db.CT_PhieuMuon.Remove(ct_phieu);
+                    //trả lại sách  thì số lượng sách tăng lên một
+                    db.Saches.SingleOrDefault(x => x.MaSach == masach).SoLuong++;
                     db.SaveChanges();
                     //kiểm tra đk nếu không có chi tiết với mã phiếu tương ứng thì xóa bản ghi có mã phiếu tương ứng trong bảng phiếu mượn
                     if (db.CT_PhieuMuon.SingleOrDefault(x => x.MaPhieu == maphieu) == null)
@@ -201,12 +211,12 @@ namespace QuanLyThuVien
         private void dgv_danhsachphieumuon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_trasach.Enabled = true;
-            txt_manv.Text = dgv_danhsachphieumuon.CurrentRow.Cells[9].Value.ToString();
+            txt_manv.Text = dgv_danhsachphieumuon.CurrentRow.Cells[5].Value.ToString();
             txt_madocgia.Text = dgv_danhsachphieumuon.CurrentRow.Cells[1].Value.ToString();
-            txt_masach.Text = dgv_danhsachphieumuon.CurrentRow.Cells[4].Value.ToString();
+            txt_masach.Text = dgv_danhsachphieumuon.CurrentRow.Cells[7].Value.ToString();
             txt_maphieu.Text = dgv_danhsachphieumuon.CurrentRow.Cells[0].Value.ToString();
-            dtp_ngaymuon.Text = dgv_danhsachphieumuon.CurrentRow.Cells[7].Value.ToString();
-            dtp_ngaytra.Text = dgv_danhsachphieumuon.CurrentRow.Cells[6].Value.ToString();
+            dtp_ngaymuon.Text = dgv_danhsachphieumuon.CurrentRow.Cells[9].Value.ToString();
+            dtp_ngaytra.Text = dgv_danhsachphieumuon.CurrentRow.Cells[8].Value.ToString();
 
         }
     }

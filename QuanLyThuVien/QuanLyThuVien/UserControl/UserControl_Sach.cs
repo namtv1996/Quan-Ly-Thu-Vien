@@ -99,7 +99,7 @@ namespace QuanLyThuVien
             //        }
             //    }
             //}
-
+            Load_combobox();
         }
         //  CLICK TRÊN DATAGRIDVIEW
 
@@ -113,7 +113,16 @@ namespace QuanLyThuVien
             txt_soluong.Text = dgv_danhsachsach.CurrentRow.Cells[5].Value.ToString();
             txt_tinhtrang.Text = dgv_danhsachsach.CurrentRow.Cells[7].Value.ToString();
             dtp_ngaynhap.Value = DateTime.Parse(dgv_danhsachsach.CurrentRow.Cells[6].Value.ToString());
-            Load_combobox();
+            //string a = dgv_danhsachsach.CurrentRow.Cells[8].Value.ToString();
+            //cbb_nhaxuatban.SelectedValue = db.NhaXuatBans.SingleOrDefault(x=>x.TenNXB == a).MaNXB;
+            //string b = dgv_danhsachsach.CurrentRow.Cells[9].Value.ToString();
+            //cbb_tacgia.SelectedValue = db.TacGias.SingleOrDefault(x=>x.HoTenTG==b).MaTG;
+            //string c = dgv_danhsachsach.CurrentRow.Cells[10].Value.ToString();
+            //cbb_theloai.SelectedValue = db.TheLoais.SingleOrDefault(x=>x.TenTL==c).MaTL;
+            cbb_nhaxuatban.SelectedValue = dgv_danhsachsach.CurrentRow.Cells[8].Value;
+            cbb_tacgia.SelectedValue = dgv_danhsachsach.CurrentRow.Cells[9].Value;
+            cbb_theloai.SelectedValue = dgv_danhsachsach.CurrentRow.Cells[10].Value;
+           // Load_combobox();
         }
 
         //THÊM
@@ -179,6 +188,7 @@ namespace QuanLyThuVien
         //LƯU
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string masach = txt_masach.Text;
             //khởi tạo 1 độc giả
             Sach s = new Sach();
             if (stage == "add")
@@ -241,7 +251,7 @@ namespace QuanLyThuVien
                 {
                     
                
-                        s = db.Saches.SingleOrDefault(n => n.MaSach == txt_masach.Text);
+                        s = db.Saches.SingleOrDefault(n => n.MaSach ==masach);
                         //gán thông tin cho độc giả
                         s.TenSach = txt_tensach.Text;
                         s.NoiDungTT = txt_noidungtt.Text;

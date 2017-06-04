@@ -57,11 +57,11 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_search = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.lbl_search = new System.Windows.Forms.Label();
             this.lbl_diachi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsachsach)).BeginInit();
             this.grb_thongtin.SuspendLayout();
@@ -207,7 +207,7 @@
             this.txt_soluong.Location = new System.Drawing.Point(110, 153);
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.Size = new System.Drawing.Size(165, 20);
-            this.txt_soluong.TabIndex = 22;
+            this.txt_soluong.TabIndex = 9;
             // 
             // lbl_ngaynhap
             // 
@@ -224,7 +224,7 @@
             this.dtp_ngaynhap.Location = new System.Drawing.Point(420, 150);
             this.dtp_ngaynhap.Name = "dtp_ngaynhap";
             this.dtp_ngaynhap.Size = new System.Drawing.Size(150, 20);
-            this.dtp_ngaynhap.TabIndex = 16;
+            this.dtp_ngaynhap.TabIndex = 30;
             // 
             // lbl_giatien
             // 
@@ -367,6 +367,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
             // 
+            // lbl_search
+            // 
+            this.lbl_search.AutoSize = true;
+            this.lbl_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_search.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_search.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_search.Location = new System.Drawing.Point(109, 20);
+            this.lbl_search.Name = "lbl_search";
+            this.lbl_search.Size = new System.Drawing.Size(104, 16);
+            this.lbl_search.TabIndex = 30;
+            this.lbl_search.Text = "Nhập tên sách";
+            // 
             // txtSearch
             // 
             this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -387,7 +399,7 @@
             this.btnSave.Location = new System.Drawing.Point(223, 31);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(66, 23);
-            this.btnSave.TabIndex = 34;
+            this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Lưu";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = false;
@@ -422,18 +434,6 @@
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // lbl_search
-            // 
-            this.lbl_search.AutoSize = true;
-            this.lbl_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_search.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_search.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lbl_search.Location = new System.Drawing.Point(109, 20);
-            this.lbl_search.Name = "lbl_search";
-            this.lbl_search.Size = new System.Drawing.Size(104, 16);
-            this.lbl_search.TabIndex = 30;
-            this.lbl_search.Text = "Nhập tên sách";
             // 
             // UserControl_Sach
             // 

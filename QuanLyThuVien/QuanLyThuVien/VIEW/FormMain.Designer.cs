@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Độc Giả");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Sách");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Mượn Trả Sách");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Hướng Dẫn");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Độc Giả");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Sách");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Mượn Trả Sách");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hướng Dẫn");
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tre = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
@@ -51,21 +51,21 @@
             this.tre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tre.Location = new System.Drawing.Point(0, 0);
             this.tre.Name = "tre";
-            treeNode1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode1.Name = "docgia";
-            treeNode1.Text = "Độc Giả";
-            treeNode2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode2.Name = "sach";
-            treeNode2.Text = "Sách";
-            treeNode3.Name = "muonsach";
-            treeNode3.Text = "Mượn Trả Sách";
-            treeNode4.Name = "huongdan";
-            treeNode4.Text = "Hướng Dẫn";
+            treeNode5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode5.Name = "docgia";
+            treeNode5.Text = "Độc Giả";
+            treeNode6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode6.Name = "sach";
+            treeNode6.Text = "Sách";
+            treeNode7.Name = "muonsach";
+            treeNode7.Text = "Mượn Trả Sách";
+            treeNode8.Name = "huongdan";
+            treeNode8.Text = "Hướng Dẫn";
             this.tre.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.tre.Size = new System.Drawing.Size(146, 497);
             this.tre.TabIndex = 29;
             this.tre.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tre_AfterSelect);
@@ -78,7 +78,7 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.tre);
             this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Text = "Phần mềm - Quản lý thư viện";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
 

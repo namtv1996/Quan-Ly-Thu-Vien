@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QUANLYTHUVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QUANLYTHUVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CT_PhieuMuon">
           <Key>
             <PropertyRef Name="MaPhieu" />
@@ -341,8 +341,7 @@
             <End Role="TraSach" EntitySet="TraSach" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYTHUVIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -688,17 +687,17 @@
           <FunctionImport Name="SP_showthongtinmuon" ReturnType="Collection(QUANLYTHUVIENModel.SP_showthongtinmuon_Result)" />
           <FunctionImport Name="SP_showthongtinsach" ReturnType="Collection(QUANLYTHUVIENModel.SP_showthongtinsach_Result)" />
           <FunctionImport Name="SP_timkiemdocgia" ReturnType="Collection(QUANLYTHUVIENModel.SP_timkiemdocgia_Result)">
-            <Parameter Name="ten" Mode="In" Type="String" />
+          <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_timkiemnguoimuon" ReturnType="Collection(QUANLYTHUVIENModel.SP_timkiemnguoimuon_Result)">
-            <Parameter Name="ten" Mode="In" Type="String" />
+          <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_timkiemsach" ReturnType="Collection(QUANLYTHUVIENModel.SP_timkiemsach_Result)">
-            <Parameter Name="ten" Mode="In" Type="String" />
+          <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="timkiem" ReturnType="Collection(QUANLYTHUVIENModel.timkiem_Result)">
-            <Parameter Name="key" Mode="In" Type="String" />
+          <Parameter Name="key" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="show_sach_Result">

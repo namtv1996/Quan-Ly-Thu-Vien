@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_search = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.lbl_diachi = new System.Windows.Forms.GroupBox();
             this.dgv_danhsachDG = new System.Windows.Forms.DataGridView();
             this.grb_thongtin = new System.Windows.Forms.GroupBox();
-            this.lbl_search = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.lbl_diachi.SuspendLayout();
@@ -91,6 +91,18 @@
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
+            // 
+            // lbl_search
+            // 
+            this.lbl_search.AutoSize = true;
+            this.lbl_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_search.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_search.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_search.Location = new System.Drawing.Point(140, 20);
+            this.lbl_search.Name = "lbl_search";
+            this.lbl_search.Size = new System.Drawing.Size(73, 16);
+            this.lbl_search.TabIndex = 31;
+            this.lbl_search.Text = "Nhập tên ";
             // 
             // txtSearch
             // 
@@ -368,6 +380,7 @@
             this.dgv_danhsachDG.Size = new System.Drawing.Size(609, 211);
             this.dgv_danhsachDG.TabIndex = 15;
             this.dgv_danhsachDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_danhsachDG_CellClick);
+            this.dgv_danhsachDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_danhsachDG_CellContentClick);
             // 
             // grb_thongtin
             // 
@@ -396,18 +409,6 @@
             this.grb_thongtin.TabIndex = 3;
             this.grb_thongtin.TabStop = false;
             this.grb_thongtin.Text = "Thông Tin Độc Giả";
-            // 
-            // lbl_search
-            // 
-            this.lbl_search.AutoSize = true;
-            this.lbl_search.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_search.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_search.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lbl_search.Location = new System.Drawing.Point(140, 20);
-            this.lbl_search.Name = "lbl_search";
-            this.lbl_search.Size = new System.Drawing.Size(73, 16);
-            this.lbl_search.TabIndex = 31;
-            this.lbl_search.Text = "Nhập tên ";
             // 
             // Docgia
             // 
