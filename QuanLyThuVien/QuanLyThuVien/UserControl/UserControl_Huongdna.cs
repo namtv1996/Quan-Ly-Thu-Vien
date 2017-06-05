@@ -15,7 +15,7 @@ namespace QuanLyThuVien
         public UserControl_Huongdna()
         {
             InitializeComponent();
-            webBrowser2.Navigate(@"C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\Resources\Huongdan.htm");
+            webBrowser2.Navigate(@"C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\Resources\Huongdan.htm");
         }
 
         private void UserControl_Huongdna_Load(object sender, EventArgs e)

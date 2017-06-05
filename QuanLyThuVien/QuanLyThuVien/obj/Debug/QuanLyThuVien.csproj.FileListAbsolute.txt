@@ -31,3 +31,20 @@ C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Ho
 C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Docgia.resources
 C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.GenerateResource.Cache
 C:\Users\namtv1996\Desktop\Thuc Tap Nhom\Thuc Tap Nhom - Quan Ly Thu Vien Cua Hoc Vien Ki Thuat Quan Su\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.UserControl_Huongdna.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\QuanLyThuVien.exe.config
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\QuanLyThuVien.exe
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\QuanLyThuVien.pdb
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\EntityFramework.dll
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\EntityFramework.xml
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csprojResolveAssemblyReference.cache
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.UserControl_Huongdna.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.UserControl_Sach.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.UserControl_MuonSAch.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.FormMain.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Properties.Resources.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Docgia.resources
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.GenerateResource.Cache
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.exe
+C:\Users\Do Quang\Documents\GitHub\Quan-Ly-Thu-Vien\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.pdb
